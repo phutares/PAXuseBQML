@@ -5,4 +5,4 @@ Predicting visitor purchases with BQML model (ML for Business Professionals)
 ใช้ BigQuery ML ของ Google (หลักสูตร Machine Learning for Business Professionals Week 4 ของ Google Cloud)
 
 **Setup and Requirements 
-ใช้ GCP
+ใช้ GCP (./BQml11.png.png)
