@@ -15,9 +15,9 @@ Predicting visitor purchases with BQML model (ML for Business Professionals)
 
 1.The data we will use in this lab sits in the bigquery-public-data project, that is available to all. Let's take a look at a sample of this data.
 
-2.Add the query to Query editor box, and click the Run button.
+2.Add the query to Query editor box, and click the Run button.<br />
 <img src="https://i.postimg.cc/Rqr83XY0/Bgml.jpg" alt="Bgml"/>
-"#standardSQL
+<br />"#standardSQL
 SELECT
   IF(totals.transactions IS NULL, 0, 1) AS label,
   IFNULL(device.operatingSystem, "") AS os,
@@ -31,47 +31,47 @@ WHERE
 LIMIT 10000;"
 
 3.Let's save this as the training data. Click on the Save View button to save this query as a view. In the popup, type training_data as the Table Name and click Save.
-<img src="https://i.postimg.cc/d0HJ7cjt/Bgml02.jpg" alt="Bgml02"/>
+<br /><img src="https://i.postimg.cc/d0HJ7cjt/Bgml02.jpg" alt="Bgml02"/>
 
 
 ### Task 3: Create a Model
 
 1.Now replace the query with the following to create a model to predict whether a visitor will make a transaction:
-<img src="https://i.postimg.cc/DwhvHgzF/Bqml-create-ml-model.jpg" alt="Bqml-create-ml-model"/>
+<br /><img src="https://i.postimg.cc/DwhvHgzF/Bqml-create-ml-model.jpg" alt="Bqml-create-ml-model"/>
 
-"#standardSQL
+<br />"#standardSQL
 CREATE OR REPLACE MODEL `bqml_lab.sample_model`
 OPTIONS(model_type='logistic_reg') AS
 SELECT * from `bqml_lab.training_data`;"
 
-[Optional] Model information & training statistics
-<img src="https://i.postimg.cc/yNYVY89b/Bqml03-JPG.jpg" alt="Bqml03-JPG"/>
-<img src="https://i.postimg.cc/13KmQqgF/Bqml04.jpg" alt="Bqml04"/>
-<img src="https://i.postimg.cc/G24dGgXP/Bqml05.jpg" alt="Bqml05"/>
+<br />[Optional] Model information & training statistics
+<br /><img src="https://i.postimg.cc/yNYVY89b/Bqml03-JPG.jpg" alt="Bqml03-JPG"/>
+<br /><img src="https://i.postimg.cc/13KmQqgF/Bqml04.jpg" alt="Bqml04"/>
+<br /><img src="https://i.postimg.cc/G24dGgXP/Bqml05.jpg" alt="Bqml05"/>
 
 
 
 ### Task 4: Evaluate the Model
 
 1.Query
-<img src="https://i.postimg.cc/YqY2dVMb/Bqml06.jpg" alt="Bqml06"/>
+<br /><img src="https://i.postimg.cc/YqY2dVMb/Bqml06.jpg" alt="Bqml06"/>
 
-"#standardSQL
+<br />"#standardSQL
 SELECT
   *
 FROM
   ml.EVALUATE(MODEL `bqml_lab.sample_model`);"
 
 In this query, you use the ml.EVALUATE function to evaluate the predicted values against the actual data, and it shares some metrics of how the model performed. You should see a table similar to this
-<img src="https://i.postimg.cc/50D135rh/Bqml07.jpg" alt="Bqml07"/>
+<br /><img src="https://i.postimg.cc/50D135rh/Bqml07.jpg" alt="Bqml07"/>
 
 
 ### Task 5: Use the Model
 
 **1.Query
-<img src="https://i.postimg.cc/fyXsgtnJ/Bqml08.jpg" alt="Bqml08"/>
+<br /><img src="https://i.postimg.cc/fyXsgtnJ/Bqml08.jpg" alt="Bqml08"/>
 
-"#standardSQL
+<br />"#standardSQL
 SELECT
   IF(totals.transactions IS NULL, 0, 1) AS label,
   IFNULL(device.operatingSystem, "") AS os,
@@ -89,9 +89,9 @@ WHERE
 **2.Let's save this July data so we can use it in the next 2 steps to make predictions using our model. Click on the Save View button to save this query as a view. In the popup, type july_data as the Table Name.
 
 **3.Predict purchases per country
-<img src="https://i.postimg.cc/dQTJ0Xkw/Bqml09.jpg" alt="Bqml09"/>
+<br /><img src="https://i.postimg.cc/dQTJ0Xkw/Bqml09.jpg" alt="Bqml09"/>
 
-  "#standardSQL
+<br />  "#standardSQL
 SELECT
   country,
   SUM(predicted_label) as total_predicted_purchases
@@ -105,9 +105,9 @@ LIMIT 10;"
 In this query, you're using ml.PREDICT and the BQML portion of the query is wrapped with standard SQL commands. For this lab you're interested in the country and the sum of purchases for each country, so that's why SELECT, GROUP BY and ORDER BY. LIMIT is used to ensure you only get the top 10 results.
 
 **4.Predict purchases per user
-<img src="https://i.postimg.cc/rFXMRJxW/Bqml10.jpg" alt="Bqml10"/>
+<br /><img src="https://i.postimg.cc/rFXMRJxW/Bqml10.jpg" alt="Bqml10"/>
 
-"#standardSQL
+<br />"#standardSQL
 SELECT
   fullVisitorId,
   SUM(predicted_label) as total_predicted_purchases
