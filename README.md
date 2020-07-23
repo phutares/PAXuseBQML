@@ -6,7 +6,7 @@ Predicting visitor purchases with BQML model (ML for Business Professionals)
 
 ## Setup and Requirements 
 # Task 1: Create a dataset
-[url=https://postimg.cc/sGcKq9sF][img]https://i.postimg.cc/sGcKq9sF/Bgml.jpg[/img][/url]
+[url=https://postimages.org/][img]https://i.postimg.cc/Rqr83XY0/Bgml.jpg[/img][/url]
 
 # Task 2: Explore the data
 
