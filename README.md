@@ -1,14 +1,14 @@
-# PAXuseBQML
+### PAXuseBQML
 
 Predicting visitor purchases with BQML model (ML for Business Professionals)
 
 ใช้ BigQuery ML ของ Google (หลักสูตร Machine Learning for Business Professionals Week 4 ของ Google Cloud)
 
-**Setup and Requirements 
-**Task 1: Create a dataset
+## Setup and Requirements 
+# Task 1: Create a dataset
+[url=https://postimg.cc/sGcKq9sF][img]https://i.postimg.cc/sGcKq9sF/Bgml.jpg[/img][/url]
 
-
-**Task 2: Explore the data
+# Task 2: Explore the data
 
 1.The data we will use in this lab sits in the bigquery-public-data project, that is available to all. Let's take a look at a sample of this data.
 
@@ -29,7 +29,7 @@ LIMIT 10000;"
 3.Let's save this as the training data. Click on the Save View button to save this query as a view. In the popup, type training_data as the Table Name and click Save.
 
 
-**Task 3: Create a Model
+# Task 3: Create a Model
 
 1.Now replace the query with the following to create a model to predict whether a visitor will make a transaction:
 
@@ -41,7 +41,7 @@ SELECT * from `bqml_lab.training_data`;"
 [Optional] Model information & training statistics
 
 
-**Task 4: Evaluate the Model
+# Task 4: Evaluate the Model
 
 1.Query
 "#standardSQL
@@ -53,7 +53,7 @@ FROM
 In this query, you use the ml.EVALUATE function to evaluate the predicted values against the actual data, and it shares some metrics of how the model performed. You should see a table similar to this
 
 
-**Task 5: Use the Model
+# Task 5: Use the Model
 
 1.Query
 "#standardSQL
