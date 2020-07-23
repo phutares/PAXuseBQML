@@ -13,9 +13,9 @@ Predicting visitor purchases with BQML model (ML for Business Professionals)
 
 ### Task 2: Explore the data
 
-1.The data we will use in this lab sits in the bigquery-public-data project, that is available to all. Let's take a look at a sample of this data.
+**1.The data we will use in this lab sits in the bigquery-public-data project, that is available to all. Let's take a look at a sample of this data.**
 
-2.Add the query to Query editor box, and click the Run button.<br />
+**2.Add the query to Query editor box, and click the Run button.**<br />
 <img src="https://i.postimg.cc/Rqr83XY0/Bgml.jpg" alt="Bgml"/>
 <br />"#standardSQL
 SELECT
@@ -30,13 +30,13 @@ WHERE
   _TABLE_SUFFIX BETWEEN '20160801' AND '20170631'
 LIMIT 10000;"
 
-3.Let's save this as the training data. Click on the Save View button to save this query as a view. In the popup, type training_data as the Table Name and click Save.
+**3.Let's save this as the training data. Click on the Save View button to save this query as a view. In the popup, type training_data as the Table Name and click Save.**
 <br /><img src="https://i.postimg.cc/d0HJ7cjt/Bgml02.jpg" alt="Bgml02"/>
 
 
 ### Task 3: Create a Model
 
-1.Now replace the query with the following to create a model to predict whether a visitor will make a transaction:
+**1.Now replace the query with the following to create a model to predict whether a visitor will make a transaction:**
 <br /><img src="https://i.postimg.cc/DwhvHgzF/Bqml-create-ml-model.jpg" alt="Bqml-create-ml-model"/>
 
 <br />"#standardSQL
@@ -53,7 +53,7 @@ SELECT * from `bqml_lab.training_data`;"
 
 ### Task 4: Evaluate the Model
 
-1.Query
+**1.Query**
 <br /><img src="https://i.postimg.cc/YqY2dVMb/Bqml06.jpg" alt="Bqml06"/>
 
 <br />"#standardSQL
@@ -68,7 +68,7 @@ In this query, you use the ml.EVALUATE function to evaluate the predicted values
 
 ### Task 5: Use the Model
 
-**1.Query
+**1.Query**
 <br /><img src="https://i.postimg.cc/fyXsgtnJ/Bqml08.jpg" alt="Bqml08"/>
 
 <br />"#standardSQL
@@ -86,9 +86,9 @@ WHERE
   
   There is the additional fullVisitorId column which you will use for predicting transactions by individual user.The WHERE portion reflects the change in time frame (July 1 to August 1 2017).
   
-**2.Let's save this July data so we can use it in the next 2 steps to make predictions using our model. Click on the Save View button to save this query as a view. In the popup, type july_data as the Table Name.
+**2.Let's save this July data so we can use it in the next 2 steps to make predictions using our model. Click on the Save View button to save this query as a view. In the popup, type july_data as the Table Name.**
 
-**3.Predict purchases per country
+**3.Predict purchases per country**
 <br /><img src="https://i.postimg.cc/dQTJ0Xkw/Bqml09.jpg" alt="Bqml09"/>
 
 <br />  "#standardSQL
@@ -104,7 +104,7 @@ LIMIT 10;"
 
 In this query, you're using ml.PREDICT and the BQML portion of the query is wrapped with standard SQL commands. For this lab you're interested in the country and the sum of purchases for each country, so that's why SELECT, GROUP BY and ORDER BY. LIMIT is used to ensure you only get the top 10 results.
 
-**4.Predict purchases per user
+**4.Predict purchases per user**
 <br /><img src="https://i.postimg.cc/rFXMRJxW/Bqml10.jpg" alt="Bqml10"/>
 
 <br />"#standardSQL
